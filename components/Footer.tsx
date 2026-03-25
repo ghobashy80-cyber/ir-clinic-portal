@@ -28,15 +28,21 @@ export default function Footer() {
 
           {/* Column 3: Contact Summary */}
           <div>
-            <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Primary Locations</h4>
+            <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contact & Locations</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li>Kasr Al-Ainy Hospital</li>
-              <li>Andalusia Group Hospitals</li>
+              <li>📍 Kasr Al-Ainy Hospital, Cairo University</li>
+              <li>📍 Andalusia Group Hospitals, Maadi</li>
               <li className="pt-2" dir="ltr">
                 <a href="https://wa.me/201555783179" className="hover:text-white transition border-b border-slate-700 pb-1">
-                  +20 155 578 3179
+                  📱 +20 155 578 3179
                 </a>
               </li>
+              <li dir="ltr">
+                <a href="mailto:info@drelghobashy.com" className="hover:text-blue-400 transition border-b border-slate-700 pb-1">
+                  ✉️ info@drelghobashy.com
+                </a>
+              </li>
+              <li>☎️ Andalusia Hotline: 16781</li>
             </ul>
           </div>
 
@@ -46,8 +52,8 @@ export default function Footer() {
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} Dr. Mohamed El Ghobashy. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
           </div>
         </div>
       </div>

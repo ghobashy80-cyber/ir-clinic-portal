@@ -223,14 +223,15 @@ export default function PatientPortal() {
               <p className="text-slate-400 text-sm mb-6">{t.socialSub}</p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: t.socialYT, icon: "▶", bg: "bg-red-600 hover:bg-red-700" },
-                  { label: t.socialIG, icon: "◈", bg: "bg-pink-600 hover:bg-pink-700" },
-                  { label: t.socialFB, icon: "f", bg: "bg-blue-600 hover:bg-blue-700" },
-                  { label: t.socialTK, icon: "♪", bg: "bg-slate-700 hover:bg-slate-600" }
+                  { label: t.socialYT, icon: "▶", bg: "bg-red-600 hover:bg-red-700", href: "https://www.youtube.com/@drelghobashy" },
+                  { label: t.socialIG, icon: "◈", bg: "bg-pink-600 hover:bg-pink-700", href: "https://www.instagram.com/drelghobashy" },
+                  { label: t.socialFB, icon: "f", bg: "bg-blue-600 hover:bg-blue-700", href: "https://www.facebook.com/drelghobashy" },
+                  { label: t.socialTK, icon: "♪", bg: "bg-slate-700 hover:bg-slate-600", href: "https://www.tiktok.com/@drelghobashy" }
                 ].map((s, i) => (
-                  <button key={i} className={`${s.bg} text-white text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition`}>
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                    className={`${s.bg} text-white text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition`}>
                     <span>{s.icon}</span> {s.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
