@@ -32,9 +32,9 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li>Kasr Al-Ainy Hospital</li>
               <li>Andalusia Group Hospitals</li>
-              <li className="pt-2">
-                <a href="mailto:clinic@drelghobashy.com" className="hover:text-white transition border-b border-slate-700 pb-1">
-                  clinic@drelghobashy.com
+              <li className="pt-2" dir="ltr">
+                <a href="https://wa.me/201555783179" className="hover:text-white transition border-b border-slate-700 pb-1">
+                  +20 155 578 3179
                 </a>
               </li>
             </ul>

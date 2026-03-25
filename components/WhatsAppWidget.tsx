@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function WhatsAppWidget() {
   // Replace this with your actual WhatsApp Business number
-  const phoneNumber = "201000000000"; 
+  const phoneNumber = "201555783179";
   const message = "Hello Dr. El Ghobashy's Clinic, I would like to inquire about a procedure.";
 
   return (
