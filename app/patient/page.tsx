@@ -82,44 +82,24 @@ const videoLibrary: Record<string, VideoItem[]> = {
     { title: "IR vs Surgery — The Key Differences",            ep: "02", color: "blue",   cat: "general" },
     { title: "Preparing for Your IR Procedure",                ep: "03", color: "green",  cat: "general" },
     { title: "Post-Procedure Care & Recovery Guide",           ep: "04", color: "green",  cat: "general" },
-    { title: "Understanding Embolization",                     ep: "05", color: "purple", cat: "general" },
-    { title: "Questions to Ask Before Your Procedure",         ep: "06", color: "slate",  cat: "general" },
-    { title: "When Should You See an IR Doctor?",              ep: "07", color: "slate",  cat: "general" },
-    { title: "What is PAE? Prostate Artery Embolization",      ep: "08", color: "blue",   cat: "pae"     },
-    { title: "Am I a Candidate for PAE?",                      ep: "09", color: "blue",   cat: "pae"     },
-    { title: "PAE — Before, During & After",                   ep: "10", color: "blue",   cat: "pae"     },
-    { title: "Enlarged Prostate — All Treatments Compared",    ep: "11", color: "blue",   cat: "pae"     },
-    { title: "UFE: Treating Fibroids Without Surgery",         ep: "12", color: "rose",   cat: "ufe"     },
-    { title: "Am I a Candidate for UFE?",                      ep: "13", color: "rose",   cat: "ufe"     },
-    { title: "UFE — Recovery & What to Expect",                ep: "14", color: "rose",   cat: "ufe"     },
-    { title: "Living with Fibroids — All Options Compared",    ep: "15", color: "rose",   cat: "ufe"     },
-    { title: "TACE for Liver Tumours — Step by Step",          ep: "16", color: "amber",  cat: "tace"    },
-    { title: "TACE — What to Expect & Recovery",               ep: "17", color: "amber",  cat: "tace"    },
-    { title: "Pelvic Congestion Syndrome Explained",           ep: "18", color: "purple", cat: "other"   },
-    { title: "Vascular Access — PICC, Port & Dialysis Lines",  ep: "19", color: "cyan",   cat: "other"   },
-    { title: "Image-Guided Biopsy — What to Expect",           ep: "20", color: "indigo", cat: "other"   },
+    { title: "What is PAE? Prostate Artery Embolization",      ep: "05", color: "blue",   cat: "pae"     },
+    { title: "Am I a Candidate for PAE?",                      ep: "06", color: "blue",   cat: "pae"     },
+    { title: "UFE: Treating Fibroids Without Surgery",         ep: "07", color: "rose",   cat: "ufe"     },
+    { title: "Am I a Candidate for UFE?",                      ep: "08", color: "rose",   cat: "ufe"     },
+    { title: "TACE for Liver Tumours — Step by Step",          ep: "09", color: "amber",  cat: "tace"    },
+    { title: "Pelvic Congestion Syndrome Explained",           ep: "10", color: "purple", cat: "other"   },
   ],
   ar: [
     { title: "ما هي الأشعة التداخلية؟ مقدمة شاملة",              ep: "01", color: "blue",   cat: "general" },
     { title: "الأشعة التداخلية مقابل الجراحة — الفروق الأساسية", ep: "02", color: "blue",   cat: "general" },
     { title: "كيف تستعد لإجراء الأشعة التداخلية؟",               ep: "03", color: "green",  cat: "general" },
     { title: "رعاية ما بعد الإجراء — دليل التعافي",              ep: "04", color: "green",  cat: "general" },
-    { title: "الانصمام الوعائي — الدليل الشامل",                  ep: "05", color: "purple", cat: "general" },
-    { title: "الأسئلة التي يجب طرحها قبل إجراءك الطبي",          ep: "06", color: "slate",  cat: "general" },
-    { title: "متى يجب زيارة طبيب الأشعة التداخلية؟",             ep: "07", color: "slate",  cat: "general" },
-    { title: "قسطرة شريان البروستاتا — شرح مفصل",                ep: "08", color: "blue",   cat: "pae"     },
-    { title: "هل أنا مرشح لقسطرة البروستاتا؟",                   ep: "09", color: "blue",   cat: "pae"     },
-    { title: "قسطرة البروستاتا — قبل وأثناء وبعد",               ep: "10", color: "blue",   cat: "pae"     },
-    { title: "تضخم البروستاتا — مقارنة جميع العلاجات",           ep: "11", color: "blue",   cat: "pae"     },
-    { title: "UFE: علاج الأورام الليفية بدون جراحة",             ep: "12", color: "rose",   cat: "ufe"     },
-    { title: "هل أنا مرشحة لقسطرة الأورام الليفية؟",             ep: "13", color: "rose",   cat: "ufe"     },
-    { title: "UFE — التعافي وما يمكن توقعه",                      ep: "14", color: "rose",   cat: "ufe"     },
-    { title: "الأورام الليفية — مقارنة جميع خيارات العلاج",       ep: "15", color: "rose",   cat: "ufe"     },
-    { title: "TACE لأورام الكبد — خطوة بخطوة",                   ep: "16", color: "amber",  cat: "tace"    },
-    { title: "TACE — التعافي وما يمكن توقعه",                     ep: "17", color: "amber",  cat: "tace"    },
-    { title: "احتقان الحوض — ما هو وكيف نعالجه؟",                ep: "18", color: "purple", cat: "other"   },
-    { title: "خطوط الوريد المركزي — PICC والبورت",                ep: "19", color: "cyan",   cat: "other"   },
-    { title: "الخزعة الموجهة بالأشعة — ما تحتاج معرفته",          ep: "20", color: "indigo", cat: "other"   },
+    { title: "قسطرة شريان البروستاتا — شرح مفصل",                ep: "05", color: "blue",   cat: "pae"     },
+    { title: "هل أنا مرشح لقسطرة البروستاتا؟",                   ep: "06", color: "blue",   cat: "pae"     },
+    { title: "UFE: علاج الأورام الليفية بدون جراحة",             ep: "07", color: "rose",   cat: "ufe"     },
+    { title: "هل أنا مرشحة لقسطرة الأورام الليفية؟",             ep: "08", color: "rose",   cat: "ufe"     },
+    { title: "TACE لأورام الكبد — خطوة بخطوة",                   ep: "09", color: "amber",  cat: "tace"    },
+    { title: "احتقان الحوض — ما هو وكيف نعالجه؟",                ep: "10", color: "purple", cat: "other"   },
   ]
 };
 
@@ -145,7 +125,8 @@ export default function PatientPortal() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [activeVideoTab, setActiveVideoTab] = useState<VideoCategory | "all">("all");
+  const [showAllVideos, setShowAllVideos] = useState(false);
+  const [videoSearch, setVideoSearch] = useState("");
   const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -185,10 +166,12 @@ export default function PatientPortal() {
       eduSub: "Evidence-based articles to help you understand your procedure.",
       faqTitle: "Frequently Asked Questions",
       faqSub: "Everything you need to know before your appointment.",
-      videoTitle: "Video Library — 20 Episodes",
+      videoTitle: "Video Library — 10 Episodes",
       videoSub: "Procedure explanations in Egyptian Arabic — narrated by AI, animated for clarity.",
       videoYTBtn: "Subscribe on YouTube",
-      videoTabs: { all: "All (20)", general: "General IR", pae: "Prostate (PAE)", ufe: "Fibroids (UFE)", tace: "Liver (TACE)", other: "Other" },
+      videoSearchPlaceholder: "Search videos...",
+      videoBrowseAll: "Browse all 10 episodes",
+      videoShowLess: "Show less",
       socialTitle: "Follow for Weekly Content",
       socialSub: "Educational reels, procedure animations, and podcast episodes — in Arabic.",
       socialYT: "YouTube",
@@ -215,10 +198,12 @@ export default function PatientPortal() {
       eduSub: "مقالات طبية موثوقة لمساعدتك على فهم إجراءاتك.",
       faqTitle: "الأسئلة الشائعة",
       faqSub: "كل ما تحتاج معرفته قبل موعدك.",
-      videoTitle: "مكتبة الفيديوهات — 20 حلقة",
+      videoTitle: "مكتبة الفيديوهات — 10 حلقات",
       videoSub: "شرح الإجراءات بالعامية المصرية — صوت ذكاء اصطناعي وانيميشن توضيحي.",
       videoYTBtn: "اشترك في يوتيوب",
-      videoTabs: { all: "الكل (20)", general: "عام", pae: "البروستاتا", ufe: "الأورام الليفية", tace: "الكبد", other: "إجراءات أخرى" },
+      videoSearchPlaceholder: "ابحث عن فيديو...",
+      videoBrowseAll: "تصفح جميع الحلقات الـ 10",
+      videoShowLess: "عرض أقل",
       socialTitle: "تابعنا للمحتوى الأسبوعي",
       socialSub: "ريلز تعليمية، أنيميشن للإجراءات، وحلقات بودكاست — بالعربية.",
       socialYT: "يوتيوب",
@@ -370,119 +355,102 @@ export default function PatientPortal() {
               </div>
               <p className="text-slate-500 text-sm mb-5">{t.videoSub}</p>
 
-              {/* Category tabs */}
-              {(() => {
-                const catMeta: Record<string, { dot: string; active: string }> = {
-                  all:     { dot: "bg-slate-700",   active: "bg-slate-900 text-white border-slate-900"   },
-                  general: { dot: "bg-blue-500",    active: "bg-blue-600 text-white border-blue-600"     },
-                  pae:     { dot: "bg-sky-500",     active: "bg-sky-600 text-white border-sky-600"       },
-                  ufe:     { dot: "bg-rose-500",    active: "bg-rose-600 text-white border-rose-600"     },
-                  tace:    { dot: "bg-amber-500",   active: "bg-amber-600 text-white border-amber-600"   },
-                  other:   { dot: "bg-purple-500",  active: "bg-purple-600 text-white border-purple-600" },
-                };
-                return (
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {(Object.entries(t.videoTabs) as [VideoCategory | "all", string][]).map(([key, label]) => {
-                      const meta = catMeta[key] || catMeta.all;
-                      const isActive = activeVideoTab === key;
-                      return (
-                        <button key={key} onClick={() => setActiveVideoTab(key)}
-                          className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition ${
-                            isActive ? meta.active : "bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50"
-                          }`}>
-                          <span className={`w-2 h-2 rounded-full flex-shrink-0 ${isActive ? "bg-white/70" : meta.dot}`} />
-                          {label}
-                        </button>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
-
-              {/* Video display */}
+              {/* Shared helpers */}
               {(() => {
                 const thumbGrad: Record<string, string> = {
-                  blue:   "from-blue-700 via-blue-800 to-indigo-900",
-                  rose:   "from-rose-600 via-rose-700 to-pink-900",
-                  amber:  "from-amber-500 via-amber-700 to-orange-900",
-                  purple: "from-purple-600 via-purple-800 to-violet-900",
-                  cyan:   "from-cyan-600 via-cyan-800 to-sky-900",
-                  indigo: "from-indigo-600 via-indigo-800 to-slate-900",
-                  green:  "from-emerald-600 via-green-700 to-teal-900",
-                  slate:  "from-slate-600 via-slate-700 to-slate-900",
+                  blue:"from-blue-700 via-blue-800 to-indigo-900", rose:"from-rose-600 via-rose-700 to-pink-900",
+                  amber:"from-amber-500 via-amber-700 to-orange-900", purple:"from-purple-600 via-purple-800 to-violet-900",
+                  cyan:"from-cyan-600 via-cyan-800 to-sky-900", indigo:"from-indigo-600 via-indigo-800 to-slate-900",
+                  green:"from-emerald-600 via-green-700 to-teal-900", slate:"from-slate-600 via-slate-700 to-slate-900",
                 };
                 const dotBg: Record<string, string> = {
-                  blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
-                  purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
-                  green: "bg-emerald-500", slate: "bg-slate-500",
+                  blue:"bg-blue-500", rose:"bg-rose-500", amber:"bg-amber-500",
+                  purple:"bg-purple-500", cyan:"bg-cyan-500", indigo:"bg-indigo-500",
+                  green:"bg-emerald-500", slate:"bg-slate-400",
                 };
-                const catLabel: Record<VideoCategory, { en: string; ar: string; color: string }> = {
-                  general: { en: "General IR", ar: "عام",             color: "bg-blue-100 text-blue-700"    },
-                  pae:     { en: "PAE",         ar: "البروستاتا",      color: "bg-sky-100 text-sky-700"      },
-                  ufe:     { en: "UFE",         ar: "الأورام الليفية", color: "bg-rose-100 text-rose-700"    },
-                  tace:    { en: "TACE",        ar: "الكبد",           color: "bg-amber-100 text-amber-700"  },
-                  other:   { en: "Other",       ar: "إجراءات أخرى",   color: "bg-purple-100 text-purple-700"},
+                const catLabel: Record<VideoCategory,{en:string;ar:string;color:string}> = {
+                  general:{en:"General IR",ar:"عام",              color:"bg-blue-100 text-blue-700"},
+                  pae:    {en:"PAE",       ar:"البروستاتا",       color:"bg-sky-100 text-sky-700"},
+                  ufe:    {en:"UFE",       ar:"الأورام الليفية",  color:"bg-rose-100 text-rose-700"},
+                  tace:   {en:"TACE",      ar:"الكبد",            color:"bg-amber-100 text-amber-700"},
+                  other:  {en:"Other",     ar:"إجراءات أخرى",    color:"bg-purple-100 text-purple-700"},
                 };
-                const catIcon: Record<VideoCategory, string> = {
-                  general: "🩻", pae: "🔵", ufe: "🔴", tace: "🟡", other: "⚕️"
-                };
-                const filtered = videos.filter(v => activeVideoTab === "all" || v.cat === activeVideoTab);
 
-                /* ── ALL tab → compact stacked playlist ── */
-                if (activeVideoTab === "all") {
-                  return (
-                    <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm divide-y divide-slate-100">
-                      {filtered.map((v, i) => (
-                        <div key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition group cursor-pointer">
-                          {/* Color bar */}
-                          <div className={`w-1 h-10 rounded-full flex-shrink-0 ${dotBg[v.color] || "bg-slate-400"}`} />
-                          {/* Mini thumbnail */}
-                          <div className={`w-12 h-8 rounded-lg bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex items-center justify-center flex-shrink-0`}>
-                            <svg className="w-3 h-3 text-white/80 ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                          </div>
-                          {/* Info */}
-                          <div className="flex-1 min-w-0">
-                            <p className="text-slate-800 text-xs font-semibold leading-snug line-clamp-1">{v.title}</p>
-                            <div className="flex items-center gap-2 mt-0.5">
-                              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${catLabel[v.cat]?.color}`}>
-                                {catLabel[v.cat]?.[language === 'en' ? 'en' : 'ar']}
-                              </span>
-                              <span className="text-[10px] text-slate-400">
-                                {language === 'en' ? 'Coming Soon' : 'قريباً'}
-                              </span>
+                /* ── Top 5 thumbnail cards ── */
+                const top5 = videos.slice(0, 5);
+
+                /* ── Filtered search list ── */
+                const searchResults = videos.filter(v =>
+                  v.title.toLowerCase().includes(videoSearch.toLowerCase())
+                );
+
+                return (
+                  <>
+                    {/* Top 5 cards */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+                      {top5.map((v, i) => (
+                        <div key={i} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer">
+                          <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color]} flex items-center justify-center`}>
+                            <span className="absolute top-1.5 ltr:left-1.5 rtl:right-1.5 text-[9px] font-black bg-black/40 text-white px-1 py-0.5 rounded backdrop-blur-sm">EP {v.ep}</span>
+                            <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-all">
+                              <svg className="w-4 h-4 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
+                            <span className="absolute bottom-1.5 ltr:right-1.5 rtl:left-1.5 text-[9px] font-bold bg-black/50 text-white px-1.5 py-0.5 rounded-full">
+                              {language === 'en' ? 'Soon' : 'قريباً'}
+                            </span>
                           </div>
-                          {/* Episode number */}
-                          <span className="text-xs font-black text-slate-300 flex-shrink-0">{v.ep}</span>
+                          <div className="p-2">
+                            <p className="text-slate-800 text-[11px] font-semibold leading-snug line-clamp-2">{v.title}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
-                  );
-                }
 
-                /* ── Category tabs → thumbnail card grid ── */
-                return (
-                  <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
-                    {filtered.map((v, i) => (
-                      <div key={i}
-                        className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-                        <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex items-center justify-center`}>
-                          <span className="absolute top-2 ltr:left-2 rtl:right-2 text-[10px] font-black bg-black/40 text-white px-1.5 py-0.5 rounded-md backdrop-blur-sm">EP {v.ep}</span>
-                          <span className="absolute top-2 ltr:right-2 rtl:left-2 text-sm">{catIcon[v.cat]}</span>
-                          <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:bg-white/30 group-hover:scale-110 transition-all">
-                            <svg className="w-5 h-5 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                          </div>
-                          <span className="absolute bottom-2 ltr:right-2 rtl:left-2 text-[10px] font-bold bg-black/50 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-sm">
-                            {language === 'en' ? 'Coming Soon' : 'قريباً'}
-                          </span>
+                    {/* Browse all toggle */}
+                    <button onClick={() => { setShowAllVideos(!showAllVideos); setVideoSearch(""); }}
+                      className="w-full flex items-center justify-between px-4 py-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition text-sm font-semibold text-slate-700">
+                      <span>{showAllVideos ? t.videoShowLess : t.videoBrowseAll}</span>
+                      <span className={`transition-transform duration-200 ${showAllVideos ? 'rotate-180' : ''}`}>▾</span>
+                    </button>
+
+                    {/* Expanded searchable list */}
+                    {showAllVideos && (
+                      <div className="mt-3 space-y-2">
+                        {/* Search input */}
+                        <div className="relative">
+                          <svg className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                          </svg>
+                          <input type="text" value={videoSearch} onChange={e => setVideoSearch(e.target.value)}
+                            placeholder={t.videoSearchPlaceholder}
+                            className="w-full ltr:pl-9 rtl:pr-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 outline-none"/>
                         </div>
-                        <div className="p-3">
-                          <p className="text-slate-800 text-xs font-semibold leading-snug line-clamp-2">{v.title}</p>
-                          <p className="text-slate-400 text-[10px] mt-1">{language === 'en' ? 'Dr. El Ghobashy · Arabic' : 'د. الغباشي · عامية مصرية'}</p>
+
+                        {/* Results list */}
+                        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden divide-y divide-slate-100">
+                          {searchResults.length === 0 ? (
+                            <p className="text-center text-slate-400 text-sm py-6">
+                              {language === 'en' ? 'No videos found' : 'لا توجد نتائج'}
+                            </p>
+                          ) : searchResults.map((v, i) => (
+                            <div key={i} className="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition cursor-pointer">
+                              <div className={`w-1 h-8 rounded-full flex-shrink-0 ${dotBg[v.color]}`}/>
+                              <div className={`w-10 h-7 rounded-lg bg-gradient-to-br ${thumbGrad[v.color]} flex items-center justify-center flex-shrink-0`}>
+                                <svg className="w-3 h-3 text-white/80 ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-slate-800 text-xs font-semibold line-clamp-1">{v.title}</p>
+                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${catLabel[v.cat]?.color}`}>
+                                  {catLabel[v.cat]?.[language === 'en' ? 'en' : 'ar']}
+                                </span>
+                              </div>
+                              <span className="text-[10px] font-black text-slate-300">{v.ep}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    )}
+                  </>
                 );
               })()}
             </div>
