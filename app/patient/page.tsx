@@ -162,6 +162,16 @@ export default function PatientPortal() {
       podSchedule: "Every Sunday 8:00 AM Cairo Time",
       podUpcoming: "Next Episode",
       podSoon: "Coming Soon",
+      bookTitle: "Book a Consultation",
+      bookSub: "Choose the location that suits you.",
+      bookKasrTitle: "Kasr Al-Ainy Hospital",
+      bookKasrTag: "Academic University Hospital",
+      bookKasrDesc: "Cairo University's academic teaching hospital. Contact Dr. El Ghobashy directly via WhatsApp to discuss your case and arrange a consultation.",
+      bookKasrBtn: "WhatsApp Dr. El Ghobashy",
+      bookAndTitle: "Andalusia Group",
+      bookAndTag: "Private Hospital · Maadi",
+      bookAndDesc: "Andalusia Group operates its own dedicated booking system. Call their hotline to schedule your appointment directly.",
+      bookAndBtn: "Call Hotline 16781",
       eduTitle: "Patient Education Centre",
       eduSub: "Evidence-based articles to help you understand your procedure.",
       faqTitle: "Frequently Asked Questions",
@@ -194,6 +204,16 @@ export default function PatientPortal() {
       podSchedule: "كل أحد الساعة 8:00 صباحاً بتوقيت القاهرة",
       podUpcoming: "الحلقة القادمة",
       podSoon: "قريباً",
+      bookTitle: "احجز استشارة",
+      bookSub: "اختر الموقع المناسب لك.",
+      bookKasrTitle: "مستشفى قصر العيني",
+      bookKasrTag: "مستشفى جامعي أكاديمي",
+      bookKasrDesc: "مستشفى قصر العيني الجامعي التعليمي بجامعة القاهرة. تواصل مع د. الغباشي مباشرةً عبر واتساب لمناقشة حالتك وترتيب الاستشارة.",
+      bookKasrBtn: "واتساب د. الغباشي",
+      bookAndTitle: "مستشفيات الأندلس",
+      bookAndTag: "مستشفى خاص · المعادي",
+      bookAndDesc: "تعمل مستشفيات الأندلس بنظام حجز خاص بها. اتصل بالخط الساخن لحجز موعدك مباشرةً.",
+      bookAndBtn: "اتصل بـ 16781",
       eduTitle: "مركز التثقيف الطبي",
       eduSub: "مقالات طبية موثوقة لمساعدتك على فهم إجراءاتك.",
       faqTitle: "الأسئلة الشائعة",
@@ -333,6 +353,62 @@ export default function PatientPortal() {
 
           {/* ── Right main area ── */}
           <div className="lg:col-span-2 space-y-10">
+
+            {/* Book a Consultation */}
+            <div>
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-1">{t.bookTitle}</h3>
+              <p className="text-slate-500 text-sm mb-5">{t.bookSub}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                {/* Kasr Al-Ainy */}
+                <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                  <div className="bg-gradient-to-r from-blue-700 to-blue-900 px-5 py-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-blue-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                      </svg>
+                      <h4 className="text-white font-bold text-sm">{t.bookKasrTitle}</h4>
+                    </div>
+                    <span className="text-[10px] font-bold bg-blue-600/60 text-blue-100 px-2 py-0.5 rounded-full">{t.bookKasrTag}</span>
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <p className="text-slate-500 text-sm leading-relaxed flex-grow mb-5">{t.bookKasrDesc}</p>
+                    <a href="https://wa.me/201555783179" target="_blank" rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-semibold text-sm py-3 rounded-xl transition">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.5l5.797-1.522A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.518-5.187-1.418l-.371-.22-3.844 1.009 1.028-3.75-.242-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                      </svg>
+                      {t.bookKasrBtn}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Andalusia */}
+                <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                  <div className="bg-gradient-to-r from-teal-700 to-teal-900 px-5 py-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <svg className="w-4 h-4 text-teal-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                      </svg>
+                      <h4 className="text-white font-bold text-sm">{t.bookAndTitle}</h4>
+                    </div>
+                    <span className="text-[10px] font-bold bg-teal-600/60 text-teal-100 px-2 py-0.5 rounded-full">{t.bookAndTag}</span>
+                  </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <p className="text-slate-500 text-sm leading-relaxed flex-grow mb-5">{t.bookAndDesc}</p>
+                    <a href="tel:16781"
+                      className="flex items-center justify-center gap-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm py-3 rounded-xl transition">
+                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                      </svg>
+                      {t.bookAndBtn}
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
 
             {/* Education accordion */}
             <div>
