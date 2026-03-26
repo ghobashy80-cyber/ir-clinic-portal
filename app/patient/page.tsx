@@ -75,16 +75,64 @@ const faqData = {
 // ─── Video library ────────────────────────────────────────────────────────────
 const videoLibrary = {
   en: [
-    { title: "What is PAE? Prostate Artery Embolization Explained", tag: "Coming Soon", color: "blue" },
-    { title: "UFE: Treating Fibroids Without Surgery", tag: "Coming Soon", color: "rose" },
-    { title: "TACE for Liver Tumours — Step by Step", tag: "Coming Soon", color: "amber" },
-    { title: "Understanding Embolization: The Complete Guide", tag: "Coming Soon", color: "purple" }
+    { title: "What is Interventional Radiology?", tag: "Ep 1", color: "blue", ep: "01" },
+    { title: "What is PAE? Prostate Artery Embolization Explained", tag: "Ep 2", color: "blue", ep: "02" },
+    { title: "Am I a Candidate for PAE?", tag: "Ep 3", color: "blue", ep: "03" },
+    { title: "PAE — Before, During & After", tag: "Ep 4", color: "blue", ep: "04" },
+    { title: "UFE: Treating Fibroids Without Surgery", tag: "Ep 5", color: "rose", ep: "05" },
+    { title: "Am I a Candidate for UFE?", tag: "Ep 6", color: "rose", ep: "06" },
+    { title: "UFE — Recovery & What to Expect", tag: "Ep 7", color: "rose", ep: "07" },
+    { title: "TACE for Liver Tumours — Step by Step", tag: "Ep 8", color: "amber", ep: "08" },
+    { title: "TACE — What to Expect & Recovery", tag: "Ep 9", color: "amber", ep: "09" },
+    { title: "Pelvic Congestion Syndrome Explained", tag: "Ep 10", color: "purple", ep: "10" },
+    { title: "Vascular Access — PICC, Port & Dialysis Lines", tag: "Ep 11", color: "cyan", ep: "11" },
+    { title: "Image-Guided Biopsy — What to Expect", tag: "Ep 12", color: "indigo", ep: "12" },
+    { title: "Understanding Embolization: The Complete Guide", tag: "Ep 13", color: "purple", ep: "13" },
+    { title: "Preparing for Your IR Procedure", tag: "Ep 14", color: "green", ep: "14" },
+    { title: "Post-Procedure Care & Recovery Guide", tag: "Ep 15", color: "green", ep: "15" },
+    { title: "IR vs Surgery — The Key Differences", tag: "Ep 16", color: "blue", ep: "16" },
+    { title: "Questions to Ask Before Your Procedure", tag: "Ep 17", color: "slate", ep: "17" },
+    { title: "Living with Fibroids — All Options Compared", tag: "Ep 18", color: "rose", ep: "18" },
+    { title: "Enlarged Prostate — All Treatments Compared", tag: "Ep 19", color: "blue", ep: "19" },
+    { title: "When Should You See an Interventional Radiologist?", tag: "Ep 20", color: "slate", ep: "20" },
   ],
   ar: [
-    { title: "قسطرة شريان البروستاتا — شرح مفصل بالعامية المصرية", tag: "قريباً", color: "blue" },
-    { title: "UFE: علاج الأورام الليفية بدون جراحة", tag: "قريباً", color: "rose" },
-    { title: "TACE لأورام الكبد — خطوة بخطوة", tag: "قريباً", color: "amber" },
-    { title: "فهم القسطرة العلاجية — الدليل الشامل", tag: "قريباً", color: "purple" }
+    { title: "ما هي الأشعة التداخلية؟ — مقدمة شاملة", tag: "حلقة 1", color: "blue", ep: "01" },
+    { title: "قسطرة شريان البروستاتا — شرح مفصل", tag: "حلقة 2", color: "blue", ep: "02" },
+    { title: "هل أنا مرشح لقسطرة البروستاتا؟", tag: "حلقة 3", color: "blue", ep: "03" },
+    { title: "قسطرة البروستاتا — قبل وأثناء وبعد", tag: "حلقة 4", color: "blue", ep: "04" },
+    { title: "UFE: علاج الأورام الليفية بدون جراحة", tag: "حلقة 5", color: "rose", ep: "05" },
+    { title: "هل أنا مرشحة لقسطرة الأورام الليفية؟", tag: "حلقة 6", color: "rose", ep: "06" },
+    { title: "UFE — التعافي وما يمكن توقعه", tag: "حلقة 7", color: "rose", ep: "07" },
+    { title: "TACE لأورام الكبد — خطوة بخطوة", tag: "حلقة 8", color: "amber", ep: "08" },
+    { title: "TACE — التعافي وما يمكن توقعه", tag: "حلقة 9", color: "amber", ep: "09" },
+    { title: "احتقان الحوض — ما هو وكيف نعالجه؟", tag: "حلقة 10", color: "purple", ep: "10" },
+    { title: "خطوط الوريد المركزي — PICC والبورت", tag: "حلقة 11", color: "cyan", ep: "11" },
+    { title: "الخزعة الموجهة بالأشعة — ما تحتاج معرفته", tag: "حلقة 12", color: "indigo", ep: "12" },
+    { title: "الانصمام الوعائي — الدليل الشامل", tag: "حلقة 13", color: "purple", ep: "13" },
+    { title: "كيف تستعد لإجراء الأشعة التداخلية؟", tag: "حلقة 14", color: "green", ep: "14" },
+    { title: "رعاية ما بعد الإجراء — دليل التعافي", tag: "حلقة 15", color: "green", ep: "15" },
+    { title: "الأشعة التداخلية مقابل الجراحة — الفروق الأساسية", tag: "حلقة 16", color: "blue", ep: "16" },
+    { title: "الأسئلة التي يجب طرحها قبل إجراءك الطبي", tag: "حلقة 17", color: "slate", ep: "17" },
+    { title: "الأورام الليفية — مقارنة جميع خيارات العلاج", tag: "حلقة 18", color: "rose", ep: "18" },
+    { title: "تضخم البروستاتا — مقارنة جميع العلاجات", tag: "حلقة 19", color: "blue", ep: "19" },
+    { title: "متى يجب زيارة طبيب الأشعة التداخلية؟", tag: "حلقة 20", color: "slate", ep: "20" },
+  ]
+};
+
+// ─── Podcast episodes ─────────────────────────────────────────────────────────
+const podcastEpisodes = {
+  en: [
+    { ep: "01", title: "Interventional Radiology — What Is It & Why Is It the Future of Medicine?", date: "Coming Sunday", status: "upcoming" },
+    { ep: "02", title: "Prostate Artery Embolization — The Alternative to Surgery", date: "Weekly Sunday 8AM", status: "soon" },
+    { ep: "03", title: "Uterine Fibroids — Do You Really Need Surgery?", date: "Weekly Sunday 8AM", status: "soon" },
+    { ep: "04", title: "Liver Tumours & TACE — Delivering Chemotherapy Directly", date: "Weekly Sunday 8AM", status: "soon" },
+  ],
+  ar: [
+    { ep: "01", title: "الأشعة التداخلية — إيه هي وليه هي مستقبل الطب؟", date: "الأحد القادم صباحاً", status: "upcoming" },
+    { ep: "02", title: "قسطرة البروستاتا — البديل الحقيقي للجراحة", date: "كل أحد الساعة 8 صباحاً", status: "soon" },
+    { ep: "03", title: "الأورام الليفية — هل تحتاجين فعلاً لجراحة؟", date: "كل أحد الساعة 8 صباحاً", status: "soon" },
+    { ep: "04", title: "أورام الكبد والـ TACE — توصيل العلاج الكيميائي مباشرةً", date: "كل أحد الساعة 8 صباحاً", status: "soon" },
   ]
 };
 
@@ -121,16 +169,21 @@ export default function PatientPortal() {
       waDesc: "Quick question, share imaging reports, or book an appointment? Message the clinic directly.",
       waBtn: "Chat on WhatsApp",
       podTitle: "Weekly IR Podcast",
-      podDesc: "Dr. El Ghobashy answers your questions live every week. Submit yours below.",
+      podDesc: "Dr. El Ghobashy answers your questions every Sunday at 8AM. Submit yours below.",
       podInput: "Type your question here...",
       podBtn: isSubmitting ? "Sending..." : "Submit for Podcast",
       podSuccess: "Your question has been submitted!",
+      podEpisodesTitle: "Upcoming Episodes",
+      podSchedule: "Every Sunday 8:00 AM Cairo Time",
+      podUpcoming: "Next Episode",
+      podSoon: "Coming Soon",
       eduTitle: "Patient Education Centre",
       eduSub: "Evidence-based articles to help you understand your procedure.",
       faqTitle: "Frequently Asked Questions",
       faqSub: "Everything you need to know before your appointment.",
-      videoTitle: "Animated Video Library",
+      videoTitle: "Video Library — 20 Episodes",
       videoSub: "Procedure explanations in Egyptian Arabic — narrated by AI, animated for clarity.",
+      videoYTBtn: "Subscribe on YouTube",
       socialTitle: "Follow for Weekly Content",
       socialSub: "Educational reels, procedure animations, and podcast episodes — in Arabic.",
       socialYT: "YouTube",
@@ -145,16 +198,21 @@ export default function PatientPortal() {
       waDesc: "استفسار سريع، مشاركة تقارير الأشعة، أو حجز موعد؟ تواصل مع العيادة مباشرةً.",
       waBtn: "تحدث معنا عبر واتساب",
       podTitle: "البودكاست الأسبوعي",
-      podDesc: "د. الغباشي يجيب على أسئلتك أسبوعياً. أرسل سؤالك ليُجاب عليه.",
+      podDesc: "د. الغباشي يجيب على أسئلتك كل أحد الساعة 8 صباحاً. أرسل سؤالك ليُجاب عليه.",
       podInput: "اكتب سؤالك هنا...",
       podBtn: isSubmitting ? "جاري الإرسال..." : "إرسال للبودكاست",
       podSuccess: "تم إرسال سؤالك بنجاح!",
+      podEpisodesTitle: "الحلقات القادمة",
+      podSchedule: "كل أحد الساعة 8:00 صباحاً بتوقيت القاهرة",
+      podUpcoming: "الحلقة القادمة",
+      podSoon: "قريباً",
       eduTitle: "مركز التثقيف الطبي",
       eduSub: "مقالات طبية موثوقة لمساعدتك على فهم إجراءاتك.",
       faqTitle: "الأسئلة الشائعة",
       faqSub: "كل ما تحتاج معرفته قبل موعدك.",
-      videoTitle: "مكتبة الفيديوهات التوضيحية",
+      videoTitle: "مكتبة الفيديوهات — 20 حلقة",
       videoSub: "شرح الإجراءات بالعامية المصرية — صوت ذكاء اصطناعي وانيميشن توضيحي.",
+      videoYTBtn: "اشترك في يوتيوب",
       socialTitle: "تابعنا للمحتوى الأسبوعي",
       socialSub: "ريلز تعليمية، أنيميشن للإجراءات، وحلقات بودكاست — بالعربية.",
       socialYT: "يوتيوب",
@@ -168,6 +226,7 @@ export default function PatientPortal() {
   const edu = eduData[language];
   const faq = faqData[language];
   const videos = videoLibrary[language];
+  const episodes = podcastEpisodes[language];
 
   return (
     <div className="bg-slate-50 min-h-screen py-16">
@@ -215,6 +274,30 @@ export default function PatientPortal() {
                   </div>
                 )}
               </form>
+            </div>
+
+            {/* Podcast Episodes */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-start">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-xl">📅</span>
+                <h3 className="text-lg font-bold text-slate-900">{t.podEpisodesTitle}</h3>
+              </div>
+              <p className="text-xs text-blue-600 font-semibold mb-4">🕗 {t.podSchedule}</p>
+              <div className="space-y-3">
+                {episodes.map((ep, i) => (
+                  <div key={i} className={`flex items-start gap-3 p-3 rounded-xl ${i === 0 ? 'bg-blue-50 border border-blue-200' : 'bg-slate-50'}`}>
+                    <span className={`text-xs font-black px-2 py-1 rounded-lg flex-shrink-0 ${i === 0 ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                      {ep.ep}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-slate-800 leading-snug">{ep.title}</p>
+                      <p className={`text-xs mt-0.5 font-medium ${i === 0 ? 'text-blue-600' : 'text-slate-400'}`}>
+                        {i === 0 ? `⭐ ${t.podUpcoming}` : t.podSoon}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Social media */}
@@ -270,22 +353,45 @@ export default function PatientPortal() {
 
             {/* Video library */}
             <div>
-              <h3 className="text-2xl font-extrabold text-slate-900 mb-2">{t.videoTitle}</h3>
+              <div className="flex items-center justify-between mb-2 flex-wrap gap-3">
+                <h3 className="text-2xl font-extrabold text-slate-900">{t.videoTitle}</h3>
+                <a href="https://www.youtube.com/@drelghobashy?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                  {t.videoYTBtn}
+                </a>
+              </div>
               <p className="text-slate-500 text-sm mb-6">{t.videoSub}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {videos.map((v, i) => (
-                  <div key={i} className="bg-slate-900 rounded-2xl overflow-hidden group cursor-pointer hover:ring-2 hover:ring-blue-500 transition">
-                    <div className="h-28 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative">
-                      <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                        <svg className="w-6 h-6 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {videos.map((v, i) => {
+                  const colorMap: Record<string, string> = {
+                    blue: "from-blue-900 to-blue-800", rose: "from-rose-900 to-rose-800",
+                    amber: "from-amber-900 to-amber-800", purple: "from-purple-900 to-purple-800",
+                    cyan: "from-cyan-900 to-cyan-800", indigo: "from-indigo-900 to-indigo-800",
+                    green: "from-green-900 to-green-800", slate: "from-slate-800 to-slate-900"
+                  };
+                  const dotColor: Record<string, string> = {
+                    blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
+                    purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
+                    green: "bg-green-500", slate: "bg-slate-500"
+                  };
+                  return (
+                    <div key={i} className="bg-slate-900 rounded-2xl overflow-hidden group hover:ring-2 hover:ring-blue-500 transition">
+                      <div className={`h-20 bg-gradient-to-br ${colorMap[v.color] || colorMap.slate} flex items-center justify-between px-4 relative`}>
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-black text-white/20">{v.ep}</span>
+                          <div className={`w-8 h-8 ${dotColor[v.color] || 'bg-blue-500'} rounded-full flex items-center justify-center group-hover:scale-110 transition flex-shrink-0`}>
+                            <svg className="w-4 h-4 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                          </div>
+                        </div>
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white/10 text-white/70">{v.tag}</span>
                       </div>
-                      <span className={`absolute top-3 ltr:right-3 rtl:left-3 text-xs font-bold px-2 py-0.5 rounded-full bg-blue-600 text-white`}>{v.tag}</span>
+                      <div className="p-3">
+                        <p className="text-white text-xs font-semibold leading-snug">{v.title}</p>
+                      </div>
                     </div>
-                    <div className="p-4">
-                      <p className="text-white text-sm font-semibold leading-snug">{v.title}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
