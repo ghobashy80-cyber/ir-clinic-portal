@@ -342,117 +342,75 @@ export default function PatientPortal() {
               </div>
             </div>
 
-            {/* Video library */}
+            {/* Video library — YouTube channel intro */}
             <div>
-              {/* Header */}
-              <div className="flex items-center justify-between mb-1 flex-wrap gap-3">
-                <h3 className="text-2xl font-extrabold text-slate-900">{t.videoTitle}</h3>
-                <a href="https://www.youtube.com/@drelghobashy?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-                  {t.videoYTBtn}
-                </a>
-              </div>
+              <h3 className="text-2xl font-extrabold text-slate-900 mb-1">{t.videoTitle}</h3>
               <p className="text-slate-500 text-sm mb-5">{t.videoSub}</p>
 
-              {/* Shared helpers */}
-              {(() => {
-                const thumbGrad: Record<string, string> = {
-                  blue:"from-blue-700 via-blue-800 to-indigo-900", rose:"from-rose-600 via-rose-700 to-pink-900",
-                  amber:"from-amber-500 via-amber-700 to-orange-900", purple:"from-purple-600 via-purple-800 to-violet-900",
-                  cyan:"from-cyan-600 via-cyan-800 to-sky-900", indigo:"from-indigo-600 via-indigo-800 to-slate-900",
-                  green:"from-emerald-600 via-green-700 to-teal-900", slate:"from-slate-600 via-slate-700 to-slate-900",
-                };
-                const dotBg: Record<string, string> = {
-                  blue:"bg-blue-500", rose:"bg-rose-500", amber:"bg-amber-500",
-                  purple:"bg-purple-500", cyan:"bg-cyan-500", indigo:"bg-indigo-500",
-                  green:"bg-emerald-500", slate:"bg-slate-400",
-                };
-                const catLabel: Record<VideoCategory,{en:string;ar:string;color:string}> = {
-                  general:{en:"General IR",ar:"عام",              color:"bg-blue-100 text-blue-700"},
-                  pae:    {en:"PAE",       ar:"البروستاتا",       color:"bg-sky-100 text-sky-700"},
-                  ufe:    {en:"UFE",       ar:"الأورام الليفية",  color:"bg-rose-100 text-rose-700"},
-                  tace:   {en:"TACE",      ar:"الكبد",            color:"bg-amber-100 text-amber-700"},
-                  other:  {en:"Other",     ar:"إجراءات أخرى",    color:"bg-purple-100 text-purple-700"},
-                };
+              {/* YouTube channel card */}
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
 
-                /* ── Top 5 thumbnail cards ── */
-                const top5 = videos.slice(0, 5);
+                {/* Channel header banner */}
+                <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-red-950 px-5 py-4 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    {/* Channel avatar */}
+                    <div className="w-11 h-11 rounded-full bg-red-600 flex items-center justify-center flex-shrink-0 border-2 border-white/20">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-sm leading-tight">Dr. El Ghobashy IR</p>
+                      <p className="text-slate-400 text-xs">@drelghobashy</p>
+                    </div>
+                  </div>
+                  <a href="https://www.youtube.com/@drelghobashy?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
+                    className="flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-full transition">
+                    {t.videoYTBtn}
+                  </a>
+                </div>
 
-                /* ── Filtered search list ── */
-                const searchResults = videos.filter(v =>
-                  v.title.toLowerCase().includes(videoSearch.toLowerCase())
-                );
-
-                return (
-                  <>
-                    {/* Top 5 cards */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+                {/* 5 episode cards */}
+                {(() => {
+                  const thumbGrad: Record<string, string> = {
+                    blue:"from-blue-700 via-blue-800 to-indigo-900", rose:"from-rose-600 via-rose-700 to-pink-900",
+                    amber:"from-amber-500 via-amber-700 to-orange-900", purple:"from-purple-600 via-purple-800 to-violet-900",
+                    green:"from-emerald-600 via-green-700 to-teal-900", slate:"from-slate-600 via-slate-700 to-slate-900",
+                  };
+                  const top5 = videos.slice(0, 5);
+                  return (
+                    <div className="divide-y divide-slate-100">
                       {top5.map((v, i) => (
-                        <div key={i} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer">
-                          <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color]} flex items-center justify-center`}>
-                            <span className="absolute top-1.5 ltr:left-1.5 rtl:right-1.5 text-[9px] font-black bg-black/40 text-white px-1 py-0.5 rounded backdrop-blur-sm">EP {v.ep}</span>
-                            <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-all">
-                              <svg className="w-4 h-4 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <a key={i} href="https://www.youtube.com/@drelghobashy" target="_blank" rel="noopener noreferrer"
+                          className="flex items-center gap-4 px-5 py-3 hover:bg-slate-50 transition group">
+                          {/* Thumbnail */}
+                          <div className={`relative w-24 h-14 rounded-lg bg-gradient-to-br ${thumbGrad[v.color]} flex items-center justify-center flex-shrink-0 overflow-hidden`}>
+                            <div className="w-7 h-7 bg-black/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-all">
+                              <svg className="w-3 h-3 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
-                            <span className="absolute bottom-1.5 ltr:right-1.5 rtl:left-1.5 text-[9px] font-bold bg-black/50 text-white px-1.5 py-0.5 rounded-full">
+                            <span className="absolute bottom-1 right-1 text-[9px] font-bold bg-black/60 text-white px-1 rounded">
                               {language === 'en' ? 'Soon' : 'قريباً'}
                             </span>
                           </div>
-                          <div className="p-2">
-                            <p className="text-slate-800 text-[11px] font-semibold leading-snug line-clamp-2">{v.title}</p>
+                          {/* Info */}
+                          <div className="flex-1 min-w-0">
+                            <p className="text-slate-800 text-sm font-semibold leading-snug line-clamp-2 group-hover:text-red-600 transition">{v.title}</p>
+                            <p className="text-slate-400 text-xs mt-1">Dr. El Ghobashy IR · EP {v.ep}</p>
                           </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
+                  );
+                })()}
 
-                    {/* Browse all toggle */}
-                    <button onClick={() => { setShowAllVideos(!showAllVideos); setVideoSearch(""); }}
-                      className="w-full flex items-center justify-between px-4 py-3 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition text-sm font-semibold text-slate-700">
-                      <span>{showAllVideos ? t.videoShowLess : t.videoBrowseAll}</span>
-                      <span className={`transition-transform duration-200 ${showAllVideos ? 'rotate-180' : ''}`}>▾</span>
-                    </button>
-
-                    {/* Expanded searchable list */}
-                    {showAllVideos && (
-                      <div className="mt-3 space-y-2">
-                        {/* Search input */}
-                        <div className="relative">
-                          <svg className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                          </svg>
-                          <input type="text" value={videoSearch} onChange={e => setVideoSearch(e.target.value)}
-                            placeholder={t.videoSearchPlaceholder}
-                            className="w-full ltr:pl-9 rtl:pr-9 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 outline-none"/>
-                        </div>
-
-                        {/* Results list */}
-                        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden divide-y divide-slate-100">
-                          {searchResults.length === 0 ? (
-                            <p className="text-center text-slate-400 text-sm py-6">
-                              {language === 'en' ? 'No videos found' : 'لا توجد نتائج'}
-                            </p>
-                          ) : searchResults.map((v, i) => (
-                            <div key={i} className="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition cursor-pointer">
-                              <div className={`w-1 h-8 rounded-full flex-shrink-0 ${dotBg[v.color]}`}/>
-                              <div className={`w-10 h-7 rounded-lg bg-gradient-to-br ${thumbGrad[v.color]} flex items-center justify-center flex-shrink-0`}>
-                                <svg className="w-3 h-3 text-white/80 ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <p className="text-slate-800 text-xs font-semibold line-clamp-1">{v.title}</p>
-                                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${catLabel[v.cat]?.color}`}>
-                                  {catLabel[v.cat]?.[language === 'en' ? 'en' : 'ar']}
-                                </span>
-                              </div>
-                              <span className="text-[10px] font-black text-slate-300">{v.ep}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
-                );
-              })()}
+                {/* Footer CTA */}
+                <div className="px-5 py-4 bg-slate-50 border-t border-slate-100 text-center">
+                  <a href="https://www.youtube.com/@drelghobashy" target="_blank" rel="noopener noreferrer"
+                    className="text-sm text-red-600 hover:text-red-700 font-semibold transition">
+                    {language === 'en' ? 'View all episodes on YouTube →' : 'مشاهدة جميع الحلقات على يوتيوب ←'}
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* FAQ accordion */}
