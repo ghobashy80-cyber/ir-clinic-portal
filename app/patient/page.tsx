@@ -233,80 +233,91 @@ export default function PatientPortal() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
           {/* ── Left sidebar ── */}
-          <div className="lg:col-span-1 space-y-8">
+          <div className="lg:col-span-1 space-y-6">
 
-            {/* WhatsApp */}
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl p-8 text-white shadow-lg text-start">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-6 text-2xl">💬</div>
-              <h3 className="text-2xl font-bold mb-3">{t.waTitle}</h3>
-              <p className="text-green-50 text-sm mb-8 leading-relaxed">{t.waDesc}</p>
-              <a href="https://wa.me/201555783179" target="_blank" rel="noopener noreferrer"
-                className="block text-center w-full bg-white text-green-600 font-bold py-3 rounded-xl hover:bg-green-50 transition shadow-md">
-                {t.waBtn}
-              </a>
-            </div>
-
-            {/* Podcast form */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-start">
-              <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-6 text-2xl">🎙️</div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">{t.podTitle}</h3>
-              <p className="text-slate-500 text-sm mb-6 leading-relaxed">{t.podDesc}</p>
-              <form ref={form} onSubmit={handleSubmit} className="space-y-4">
-                <textarea name="podcast_question" rows={4} required
-                  className="w-full p-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none resize-none bg-slate-50"
-                  placeholder={t.podInput} />
-                <button type="submit" disabled={isSubmitting}
-                  className={`w-full text-white font-bold py-3 rounded-xl transition shadow-md ${isSubmitting ? 'bg-slate-400 cursor-not-allowed' : 'bg-slate-900 hover:bg-purple-600'}`}>
-                  {t.podBtn}
-                </button>
-                {submitted && (
-                  <div className="p-3 bg-green-50 text-green-700 border border-green-200 rounded-lg text-sm font-medium text-center animate-pulse">
-                    {t.podSuccess}
-                  </div>
-                )}
-              </form>
-            </div>
-
-            {/* Podcast Episodes */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-start">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">📅</span>
-                <h3 className="text-lg font-bold text-slate-900">{t.podEpisodesTitle}</h3>
+            {/* Contact bar — compact WhatsApp + phone */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="px-5 py-3 border-b border-slate-100">
+                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{t.waTitle}</p>
               </div>
-              <p className="text-xs text-blue-600 font-semibold mb-4">🕗 {t.podSchedule}</p>
-              <div className="space-y-3">
+              <div className="p-4 space-y-2">
+                <a href="https://wa.me/201555783179" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white font-semibold text-sm py-2.5 px-4 rounded-xl transition">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.5l5.797-1.522A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.518-5.187-1.418l-.371-.22-3.844 1.009 1.028-3.75-.242-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                  </svg>
+                  {t.waBtn}
+                </a>
+                <a href="tel:+201555783179" dir="ltr"
+                  className="flex items-center gap-3 w-full bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium text-sm py-2.5 px-4 rounded-xl transition border border-slate-200">
+                  <svg className="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                  +20 155 578 3179
+                </a>
+              </div>
+            </div>
+
+            {/* Podcast card — form + episodes merged */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              {/* Card header */}
+              <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-3">
+                <div className="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-base flex-shrink-0">🎙️</div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm leading-tight">{t.podTitle}</h3>
+                  <p className="text-xs text-blue-600 font-medium">🕗 {t.podSchedule}</p>
+                </div>
+              </div>
+
+              {/* Upcoming episodes */}
+              <div className="divide-y divide-slate-100">
                 {episodes.map((ep, i) => (
-                  <div key={i} className={`flex items-start gap-3 p-3 rounded-xl ${i === 0 ? 'bg-blue-50 border border-blue-200' : 'bg-slate-50'}`}>
-                    <span className={`text-xs font-black px-2 py-1 rounded-lg flex-shrink-0 ${i === 0 ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'}`}>
+                  <div key={i} className={`flex items-start gap-3 px-5 py-3 ${i === 0 ? 'bg-blue-50' : ''}`}>
+                    <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-md flex-shrink-0 mt-0.5 ${i === 0 ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
                       {ep.ep}
                     </span>
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-slate-800 leading-snug">{ep.title}</p>
-                      <p className={`text-xs mt-0.5 font-medium ${i === 0 ? 'text-blue-600' : 'text-slate-400'}`}>
+                      <p className="text-xs font-semibold text-slate-800 leading-snug">{ep.title}</p>
+                      <p className={`text-[10px] mt-0.5 font-medium ${i === 0 ? 'text-blue-500' : 'text-slate-400'}`}>
                         {i === 0 ? `⭐ ${t.podUpcoming}` : t.podSoon}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Social media */}
-            <div className="bg-slate-900 rounded-3xl p-8 text-white text-start">
-              <h3 className="text-xl font-bold mb-2">{t.socialTitle}</h3>
-              <p className="text-slate-400 text-sm mb-6">{t.socialSub}</p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: t.socialYT, icon: "▶", bg: "bg-red-600 hover:bg-red-700", href: "https://www.youtube.com/@drelghobashy?sub_confirmation=1" },
-                  { label: t.socialIG, icon: "◈", bg: "bg-pink-600 hover:bg-pink-700", href: "https://www.instagram.com/drelghobashy" },
-                  { label: t.socialFB, icon: "f", bg: "bg-blue-600 hover:bg-blue-700", href: "https://www.facebook.com/drelghobashy" },
-                  { label: t.socialTK, icon: "♪", bg: "bg-slate-700 hover:bg-slate-600", href: "https://www.tiktok.com/@drelghobashy" }
-                ].map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className={`${s.bg} text-white text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 transition`}>
-                    <span>{s.icon}</span> {s.label}
-                  </a>
-                ))}
+              {/* Submit question form */}
+              <div className="px-5 py-4 bg-slate-50 border-t border-slate-100">
+                <p className="text-xs text-slate-500 mb-3">{t.podDesc}</p>
+                <form ref={form} onSubmit={handleSubmit} className="space-y-2">
+                  <textarea name="podcast_question" rows={3} required
+                    className="w-full p-3 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none resize-none bg-white"
+                    placeholder={t.podInput} />
+                  <button type="submit" disabled={isSubmitting}
+                    className={`w-full text-white font-semibold text-sm py-2.5 rounded-xl transition ${isSubmitting ? 'bg-slate-400 cursor-not-allowed' : 'bg-slate-900 hover:bg-purple-600'}`}>
+                    {t.podBtn}
+                  </button>
+                  {submitted && (
+                    <div className="p-2.5 bg-green-50 text-green-700 border border-green-200 rounded-lg text-xs font-medium text-center">
+                      {t.podSuccess}
+                    </div>
+                  )}
+                </form>
+              </div>
+
+              {/* Social links footer */}
+              <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between">
+                <p className="text-xs text-slate-400">{t.socialTitle}</p>
+                <div className="flex items-center gap-2">
+                  {[
+                    { href: "https://www.youtube.com/@drelghobashy?sub_confirmation=1", color: "text-red-500 hover:text-red-600", icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> },
+                    { href: "https://www.instagram.com/drelghobashy", color: "text-pink-500 hover:text-pink-600", icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> },
+                    { href: "https://www.tiktok.com/@drelghobashy", color: "text-slate-600 hover:text-slate-900", icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg> },
+                  ].map((s, i) => (
+                    <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className={`${s.color} transition`}>{s.icon}</a>
+                  ))}
+                </div>
               </div>
             </div>
 
