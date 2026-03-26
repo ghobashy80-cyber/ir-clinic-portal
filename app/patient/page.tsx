@@ -359,66 +359,98 @@ export default function PatientPortal() {
 
             {/* Video library */}
             <div>
-              <div className="flex items-center justify-between mb-2 flex-wrap gap-3">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-1 flex-wrap gap-3">
                 <h3 className="text-2xl font-extrabold text-slate-900">{t.videoTitle}</h3>
                 <a href="https://www.youtube.com/@drelghobashy?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+                  className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
                   {t.videoYTBtn}
                 </a>
               </div>
-              <p className="text-slate-500 text-sm mb-4">{t.videoSub}</p>
+              <p className="text-slate-500 text-sm mb-5">{t.videoSub}</p>
 
               {/* Category tabs */}
-              <div className="flex flex-wrap gap-2 mb-5">
-                {(Object.entries(t.videoTabs) as [VideoCategory | "all", string][]).map(([key, label]) => (
-                  <button key={key} onClick={() => setActiveVideoTab(key)}
-                    className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition ${
-                      activeVideoTab === key
-                        ? "bg-slate-900 text-white border-slate-900"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
-                    }`}>
-                    {label}
-                  </button>
-                ))}
-              </div>
+              {(() => {
+                const catMeta: Record<string, { dot: string; active: string }> = {
+                  all:     { dot: "bg-slate-700",   active: "bg-slate-900 text-white border-slate-900"   },
+                  general: { dot: "bg-blue-500",    active: "bg-blue-600 text-white border-blue-600"     },
+                  pae:     { dot: "bg-sky-500",     active: "bg-sky-600 text-white border-sky-600"       },
+                  ufe:     { dot: "bg-rose-500",    active: "bg-rose-600 text-white border-rose-600"     },
+                  tace:    { dot: "bg-amber-500",   active: "bg-amber-600 text-white border-amber-600"   },
+                  other:   { dot: "bg-purple-500",  active: "bg-purple-600 text-white border-purple-600" },
+                };
+                return (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {(Object.entries(t.videoTabs) as [VideoCategory | "all", string][]).map(([key, label]) => {
+                      const meta = catMeta[key] || catMeta.all;
+                      const isActive = activeVideoTab === key;
+                      return (
+                        <button key={key} onClick={() => setActiveVideoTab(key)}
+                          className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition ${
+                            isActive ? meta.active : "bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50"
+                          }`}>
+                          <span className={`w-2 h-2 rounded-full flex-shrink-0 ${isActive ? "bg-white/70" : meta.dot}`} />
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
 
-              {/* Video cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {videos
-                  .filter(v => activeVideoTab === "all" || v.cat === activeVideoTab)
-                  .map((v, i) => {
-                    const colorMap: Record<string, string> = {
-                      blue: "from-blue-900 to-blue-800", rose: "from-rose-900 to-rose-800",
-                      amber: "from-amber-900 to-amber-800", purple: "from-purple-900 to-purple-800",
-                      cyan: "from-cyan-900 to-cyan-800", indigo: "from-indigo-900 to-indigo-800",
-                      green: "from-green-900 to-green-800", slate: "from-slate-800 to-slate-900"
-                    };
-                    const dotColor: Record<string, string> = {
-                      blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
-                      purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
-                      green: "bg-green-500", slate: "bg-slate-500"
-                    };
-                    return (
-                      <div key={i} className="bg-slate-900 rounded-2xl overflow-hidden group hover:ring-2 hover:ring-blue-500 transition">
-                        <div className={`h-16 bg-gradient-to-br ${colorMap[v.color] || colorMap.slate} flex items-center justify-between px-4`}>
-                          <div className="flex items-center gap-3">
-                            <span className="text-xl font-black text-white/20">{v.ep}</span>
-                            <div className={`w-7 h-7 ${dotColor[v.color] || 'bg-blue-500'} rounded-full flex items-center justify-center group-hover:scale-110 transition`}>
-                              <svg className="w-3 h-3 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
+              {/* Video grid */}
+              {(() => {
+                const thumbGrad: Record<string, string> = {
+                  blue:   "from-blue-700 via-blue-800 to-indigo-900",
+                  rose:   "from-rose-600 via-rose-700 to-pink-900",
+                  amber:  "from-amber-500 via-amber-700 to-orange-900",
+                  purple: "from-purple-600 via-purple-800 to-violet-900",
+                  cyan:   "from-cyan-600 via-cyan-800 to-sky-900",
+                  indigo: "from-indigo-600 via-indigo-800 to-slate-900",
+                  green:  "from-emerald-600 via-green-700 to-teal-900",
+                  slate:  "from-slate-600 via-slate-700 to-slate-900",
+                };
+                const catIcon: Record<VideoCategory, string> = {
+                  general: "🩻", pae: "🔵", ufe: "🔴", tace: "🟡", other: "⚕️"
+                };
+                const filtered = videos.filter(v => activeVideoTab === "all" || v.cat === activeVideoTab);
+                return (
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                    {filtered.map((v, i) => (
+                      <div key={i}
+                        className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                        {/* Thumbnail */}
+                        <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex flex-col items-center justify-center`}>
+                          {/* Episode badge */}
+                          <span className="absolute top-2 ltr:left-2 rtl:right-2 text-[10px] font-black bg-black/40 text-white px-1.5 py-0.5 rounded-md backdrop-blur-sm">
+                            EP {v.ep}
+                          </span>
+                          {/* Category icon */}
+                          <span className="absolute top-2 ltr:right-2 rtl:left-2 text-sm">{catIcon[v.cat]}</span>
+                          {/* Play button */}
+                          <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-200">
+                            <svg className="w-5 h-5 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
                           </div>
-                          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white/10 text-white/60">
+                          {/* Coming soon overlay */}
+                          <span className="absolute bottom-2 ltr:right-2 rtl:left-2 text-[10px] font-bold bg-black/50 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-sm">
                             {language === 'en' ? 'Coming Soon' : 'قريباً'}
                           </span>
                         </div>
-                        <div className="px-3 py-2.5">
-                          <p className="text-white text-xs font-semibold leading-snug">{v.title}</p>
+                        {/* Title */}
+                        <div className="p-3">
+                          <p className="text-slate-800 text-xs font-semibold leading-snug line-clamp-2">{v.title}</p>
+                          <p className="text-slate-400 text-[10px] mt-1 font-medium">
+                            {language === 'en' ? `Dr. El Ghobashy · Arabic` : `د. الغباشي · عامية مصرية`}
+                          </p>
                         </div>
                       </div>
-                    );
-                  })}
-              </div>
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* FAQ accordion */}
