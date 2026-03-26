@@ -73,50 +73,53 @@ const faqData = {
 };
 
 // ─── Video library ────────────────────────────────────────────────────────────
-const videoLibrary = {
+type VideoCategory = "general" | "pae" | "ufe" | "tace" | "other";
+interface VideoItem { title: string; ep: string; color: string; cat: VideoCategory; }
+
+const videoLibrary: Record<string, VideoItem[]> = {
   en: [
-    { title: "What is Interventional Radiology?", tag: "Ep 1", color: "blue", ep: "01" },
-    { title: "What is PAE? Prostate Artery Embolization Explained", tag: "Ep 2", color: "blue", ep: "02" },
-    { title: "Am I a Candidate for PAE?", tag: "Ep 3", color: "blue", ep: "03" },
-    { title: "PAE — Before, During & After", tag: "Ep 4", color: "blue", ep: "04" },
-    { title: "UFE: Treating Fibroids Without Surgery", tag: "Ep 5", color: "rose", ep: "05" },
-    { title: "Am I a Candidate for UFE?", tag: "Ep 6", color: "rose", ep: "06" },
-    { title: "UFE — Recovery & What to Expect", tag: "Ep 7", color: "rose", ep: "07" },
-    { title: "TACE for Liver Tumours — Step by Step", tag: "Ep 8", color: "amber", ep: "08" },
-    { title: "TACE — What to Expect & Recovery", tag: "Ep 9", color: "amber", ep: "09" },
-    { title: "Pelvic Congestion Syndrome Explained", tag: "Ep 10", color: "purple", ep: "10" },
-    { title: "Vascular Access — PICC, Port & Dialysis Lines", tag: "Ep 11", color: "cyan", ep: "11" },
-    { title: "Image-Guided Biopsy — What to Expect", tag: "Ep 12", color: "indigo", ep: "12" },
-    { title: "Understanding Embolization: The Complete Guide", tag: "Ep 13", color: "purple", ep: "13" },
-    { title: "Preparing for Your IR Procedure", tag: "Ep 14", color: "green", ep: "14" },
-    { title: "Post-Procedure Care & Recovery Guide", tag: "Ep 15", color: "green", ep: "15" },
-    { title: "IR vs Surgery — The Key Differences", tag: "Ep 16", color: "blue", ep: "16" },
-    { title: "Questions to Ask Before Your Procedure", tag: "Ep 17", color: "slate", ep: "17" },
-    { title: "Living with Fibroids — All Options Compared", tag: "Ep 18", color: "rose", ep: "18" },
-    { title: "Enlarged Prostate — All Treatments Compared", tag: "Ep 19", color: "blue", ep: "19" },
-    { title: "When Should You See an Interventional Radiologist?", tag: "Ep 20", color: "slate", ep: "20" },
+    { title: "What is Interventional Radiology?",              ep: "01", color: "blue",   cat: "general" },
+    { title: "IR vs Surgery — The Key Differences",            ep: "02", color: "blue",   cat: "general" },
+    { title: "Preparing for Your IR Procedure",                ep: "03", color: "green",  cat: "general" },
+    { title: "Post-Procedure Care & Recovery Guide",           ep: "04", color: "green",  cat: "general" },
+    { title: "Understanding Embolization",                     ep: "05", color: "purple", cat: "general" },
+    { title: "Questions to Ask Before Your Procedure",         ep: "06", color: "slate",  cat: "general" },
+    { title: "When Should You See an IR Doctor?",              ep: "07", color: "slate",  cat: "general" },
+    { title: "What is PAE? Prostate Artery Embolization",      ep: "08", color: "blue",   cat: "pae"     },
+    { title: "Am I a Candidate for PAE?",                      ep: "09", color: "blue",   cat: "pae"     },
+    { title: "PAE — Before, During & After",                   ep: "10", color: "blue",   cat: "pae"     },
+    { title: "Enlarged Prostate — All Treatments Compared",    ep: "11", color: "blue",   cat: "pae"     },
+    { title: "UFE: Treating Fibroids Without Surgery",         ep: "12", color: "rose",   cat: "ufe"     },
+    { title: "Am I a Candidate for UFE?",                      ep: "13", color: "rose",   cat: "ufe"     },
+    { title: "UFE — Recovery & What to Expect",                ep: "14", color: "rose",   cat: "ufe"     },
+    { title: "Living with Fibroids — All Options Compared",    ep: "15", color: "rose",   cat: "ufe"     },
+    { title: "TACE for Liver Tumours — Step by Step",          ep: "16", color: "amber",  cat: "tace"    },
+    { title: "TACE — What to Expect & Recovery",               ep: "17", color: "amber",  cat: "tace"    },
+    { title: "Pelvic Congestion Syndrome Explained",           ep: "18", color: "purple", cat: "other"   },
+    { title: "Vascular Access — PICC, Port & Dialysis Lines",  ep: "19", color: "cyan",   cat: "other"   },
+    { title: "Image-Guided Biopsy — What to Expect",           ep: "20", color: "indigo", cat: "other"   },
   ],
   ar: [
-    { title: "ما هي الأشعة التداخلية؟ — مقدمة شاملة", tag: "حلقة 1", color: "blue", ep: "01" },
-    { title: "قسطرة شريان البروستاتا — شرح مفصل", tag: "حلقة 2", color: "blue", ep: "02" },
-    { title: "هل أنا مرشح لقسطرة البروستاتا؟", tag: "حلقة 3", color: "blue", ep: "03" },
-    { title: "قسطرة البروستاتا — قبل وأثناء وبعد", tag: "حلقة 4", color: "blue", ep: "04" },
-    { title: "UFE: علاج الأورام الليفية بدون جراحة", tag: "حلقة 5", color: "rose", ep: "05" },
-    { title: "هل أنا مرشحة لقسطرة الأورام الليفية؟", tag: "حلقة 6", color: "rose", ep: "06" },
-    { title: "UFE — التعافي وما يمكن توقعه", tag: "حلقة 7", color: "rose", ep: "07" },
-    { title: "TACE لأورام الكبد — خطوة بخطوة", tag: "حلقة 8", color: "amber", ep: "08" },
-    { title: "TACE — التعافي وما يمكن توقعه", tag: "حلقة 9", color: "amber", ep: "09" },
-    { title: "احتقان الحوض — ما هو وكيف نعالجه؟", tag: "حلقة 10", color: "purple", ep: "10" },
-    { title: "خطوط الوريد المركزي — PICC والبورت", tag: "حلقة 11", color: "cyan", ep: "11" },
-    { title: "الخزعة الموجهة بالأشعة — ما تحتاج معرفته", tag: "حلقة 12", color: "indigo", ep: "12" },
-    { title: "الانصمام الوعائي — الدليل الشامل", tag: "حلقة 13", color: "purple", ep: "13" },
-    { title: "كيف تستعد لإجراء الأشعة التداخلية؟", tag: "حلقة 14", color: "green", ep: "14" },
-    { title: "رعاية ما بعد الإجراء — دليل التعافي", tag: "حلقة 15", color: "green", ep: "15" },
-    { title: "الأشعة التداخلية مقابل الجراحة — الفروق الأساسية", tag: "حلقة 16", color: "blue", ep: "16" },
-    { title: "الأسئلة التي يجب طرحها قبل إجراءك الطبي", tag: "حلقة 17", color: "slate", ep: "17" },
-    { title: "الأورام الليفية — مقارنة جميع خيارات العلاج", tag: "حلقة 18", color: "rose", ep: "18" },
-    { title: "تضخم البروستاتا — مقارنة جميع العلاجات", tag: "حلقة 19", color: "blue", ep: "19" },
-    { title: "متى يجب زيارة طبيب الأشعة التداخلية؟", tag: "حلقة 20", color: "slate", ep: "20" },
+    { title: "ما هي الأشعة التداخلية؟ مقدمة شاملة",              ep: "01", color: "blue",   cat: "general" },
+    { title: "الأشعة التداخلية مقابل الجراحة — الفروق الأساسية", ep: "02", color: "blue",   cat: "general" },
+    { title: "كيف تستعد لإجراء الأشعة التداخلية؟",               ep: "03", color: "green",  cat: "general" },
+    { title: "رعاية ما بعد الإجراء — دليل التعافي",              ep: "04", color: "green",  cat: "general" },
+    { title: "الانصمام الوعائي — الدليل الشامل",                  ep: "05", color: "purple", cat: "general" },
+    { title: "الأسئلة التي يجب طرحها قبل إجراءك الطبي",          ep: "06", color: "slate",  cat: "general" },
+    { title: "متى يجب زيارة طبيب الأشعة التداخلية؟",             ep: "07", color: "slate",  cat: "general" },
+    { title: "قسطرة شريان البروستاتا — شرح مفصل",                ep: "08", color: "blue",   cat: "pae"     },
+    { title: "هل أنا مرشح لقسطرة البروستاتا؟",                   ep: "09", color: "blue",   cat: "pae"     },
+    { title: "قسطرة البروستاتا — قبل وأثناء وبعد",               ep: "10", color: "blue",   cat: "pae"     },
+    { title: "تضخم البروستاتا — مقارنة جميع العلاجات",           ep: "11", color: "blue",   cat: "pae"     },
+    { title: "UFE: علاج الأورام الليفية بدون جراحة",             ep: "12", color: "rose",   cat: "ufe"     },
+    { title: "هل أنا مرشحة لقسطرة الأورام الليفية؟",             ep: "13", color: "rose",   cat: "ufe"     },
+    { title: "UFE — التعافي وما يمكن توقعه",                      ep: "14", color: "rose",   cat: "ufe"     },
+    { title: "الأورام الليفية — مقارنة جميع خيارات العلاج",       ep: "15", color: "rose",   cat: "ufe"     },
+    { title: "TACE لأورام الكبد — خطوة بخطوة",                   ep: "16", color: "amber",  cat: "tace"    },
+    { title: "TACE — التعافي وما يمكن توقعه",                     ep: "17", color: "amber",  cat: "tace"    },
+    { title: "احتقان الحوض — ما هو وكيف نعالجه؟",                ep: "18", color: "purple", cat: "other"   },
+    { title: "خطوط الوريد المركزي — PICC والبورت",                ep: "19", color: "cyan",   cat: "other"   },
+    { title: "الخزعة الموجهة بالأشعة — ما تحتاج معرفته",          ep: "20", color: "indigo", cat: "other"   },
   ]
 };
 
@@ -142,6 +145,7 @@ export default function PatientPortal() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeVideoTab, setActiveVideoTab] = useState<VideoCategory | "all">("all");
   const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -184,6 +188,7 @@ export default function PatientPortal() {
       videoTitle: "Video Library — 20 Episodes",
       videoSub: "Procedure explanations in Egyptian Arabic — narrated by AI, animated for clarity.",
       videoYTBtn: "Subscribe on YouTube",
+      videoTabs: { all: "All (20)", general: "General IR", pae: "Prostate (PAE)", ufe: "Fibroids (UFE)", tace: "Liver (TACE)", other: "Other" },
       socialTitle: "Follow for Weekly Content",
       socialSub: "Educational reels, procedure animations, and podcast episodes — in Arabic.",
       socialYT: "YouTube",
@@ -213,6 +218,7 @@ export default function PatientPortal() {
       videoTitle: "مكتبة الفيديوهات — 20 حلقة",
       videoSub: "شرح الإجراءات بالعامية المصرية — صوت ذكاء اصطناعي وانيميشن توضيحي.",
       videoYTBtn: "اشترك في يوتيوب",
+      videoTabs: { all: "الكل (20)", general: "عام", pae: "البروستاتا", ufe: "الأورام الليفية", tace: "الكبد", other: "إجراءات أخرى" },
       socialTitle: "تابعنا للمحتوى الأسبوعي",
       socialSub: "ريلز تعليمية، أنيميشن للإجراءات، وحلقات بودكاست — بالعربية.",
       socialYT: "يوتيوب",
@@ -361,37 +367,57 @@ export default function PatientPortal() {
                   {t.videoYTBtn}
                 </a>
               </div>
-              <p className="text-slate-500 text-sm mb-6">{t.videoSub}</p>
+              <p className="text-slate-500 text-sm mb-4">{t.videoSub}</p>
+
+              {/* Category tabs */}
+              <div className="flex flex-wrap gap-2 mb-5">
+                {(Object.entries(t.videoTabs) as [VideoCategory | "all", string][]).map(([key, label]) => (
+                  <button key={key} onClick={() => setActiveVideoTab(key)}
+                    className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition ${
+                      activeVideoTab === key
+                        ? "bg-slate-900 text-white border-slate-900"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-slate-400"
+                    }`}>
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Video cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {videos.map((v, i) => {
-                  const colorMap: Record<string, string> = {
-                    blue: "from-blue-900 to-blue-800", rose: "from-rose-900 to-rose-800",
-                    amber: "from-amber-900 to-amber-800", purple: "from-purple-900 to-purple-800",
-                    cyan: "from-cyan-900 to-cyan-800", indigo: "from-indigo-900 to-indigo-800",
-                    green: "from-green-900 to-green-800", slate: "from-slate-800 to-slate-900"
-                  };
-                  const dotColor: Record<string, string> = {
-                    blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
-                    purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
-                    green: "bg-green-500", slate: "bg-slate-500"
-                  };
-                  return (
-                    <div key={i} className="bg-slate-900 rounded-2xl overflow-hidden group hover:ring-2 hover:ring-blue-500 transition">
-                      <div className={`h-20 bg-gradient-to-br ${colorMap[v.color] || colorMap.slate} flex items-center justify-between px-4 relative`}>
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl font-black text-white/20">{v.ep}</span>
-                          <div className={`w-8 h-8 ${dotColor[v.color] || 'bg-blue-500'} rounded-full flex items-center justify-center group-hover:scale-110 transition flex-shrink-0`}>
-                            <svg className="w-4 h-4 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                {videos
+                  .filter(v => activeVideoTab === "all" || v.cat === activeVideoTab)
+                  .map((v, i) => {
+                    const colorMap: Record<string, string> = {
+                      blue: "from-blue-900 to-blue-800", rose: "from-rose-900 to-rose-800",
+                      amber: "from-amber-900 to-amber-800", purple: "from-purple-900 to-purple-800",
+                      cyan: "from-cyan-900 to-cyan-800", indigo: "from-indigo-900 to-indigo-800",
+                      green: "from-green-900 to-green-800", slate: "from-slate-800 to-slate-900"
+                    };
+                    const dotColor: Record<string, string> = {
+                      blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
+                      purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
+                      green: "bg-green-500", slate: "bg-slate-500"
+                    };
+                    return (
+                      <div key={i} className="bg-slate-900 rounded-2xl overflow-hidden group hover:ring-2 hover:ring-blue-500 transition">
+                        <div className={`h-16 bg-gradient-to-br ${colorMap[v.color] || colorMap.slate} flex items-center justify-between px-4`}>
+                          <div className="flex items-center gap-3">
+                            <span className="text-xl font-black text-white/20">{v.ep}</span>
+                            <div className={`w-7 h-7 ${dotColor[v.color] || 'bg-blue-500'} rounded-full flex items-center justify-center group-hover:scale-110 transition`}>
+                              <svg className="w-3 h-3 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                           </div>
+                          <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white/10 text-white/60">
+                            {language === 'en' ? 'Coming Soon' : 'قريباً'}
+                          </span>
                         </div>
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-white/10 text-white/70">{v.tag}</span>
+                        <div className="px-3 py-2.5">
+                          <p className="text-white text-xs font-semibold leading-snug">{v.title}</p>
+                        </div>
                       </div>
-                      <div className="p-3">
-                        <p className="text-white text-xs font-semibold leading-snug">{v.title}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
             </div>
 
