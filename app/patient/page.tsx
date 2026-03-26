@@ -399,7 +399,7 @@ export default function PatientPortal() {
                 );
               })()}
 
-              {/* Video grid */}
+              {/* Video display */}
               {(() => {
                 const thumbGrad: Record<string, string> = {
                   blue:   "from-blue-700 via-blue-800 to-indigo-900",
@@ -411,40 +411,74 @@ export default function PatientPortal() {
                   green:  "from-emerald-600 via-green-700 to-teal-900",
                   slate:  "from-slate-600 via-slate-700 to-slate-900",
                 };
+                const dotBg: Record<string, string> = {
+                  blue: "bg-blue-500", rose: "bg-rose-500", amber: "bg-amber-500",
+                  purple: "bg-purple-500", cyan: "bg-cyan-500", indigo: "bg-indigo-500",
+                  green: "bg-emerald-500", slate: "bg-slate-500",
+                };
+                const catLabel: Record<VideoCategory, { en: string; ar: string; color: string }> = {
+                  general: { en: "General IR", ar: "عام",             color: "bg-blue-100 text-blue-700"    },
+                  pae:     { en: "PAE",         ar: "البروستاتا",      color: "bg-sky-100 text-sky-700"      },
+                  ufe:     { en: "UFE",         ar: "الأورام الليفية", color: "bg-rose-100 text-rose-700"    },
+                  tace:    { en: "TACE",        ar: "الكبد",           color: "bg-amber-100 text-amber-700"  },
+                  other:   { en: "Other",       ar: "إجراءات أخرى",   color: "bg-purple-100 text-purple-700"},
+                };
                 const catIcon: Record<VideoCategory, string> = {
                   general: "🩻", pae: "🔵", ufe: "🔴", tace: "🟡", other: "⚕️"
                 };
                 const filtered = videos.filter(v => activeVideoTab === "all" || v.cat === activeVideoTab);
+
+                /* ── ALL tab → compact stacked playlist ── */
+                if (activeVideoTab === "all") {
+                  return (
+                    <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm divide-y divide-slate-100">
+                      {filtered.map((v, i) => (
+                        <div key={i} className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition group cursor-pointer">
+                          {/* Color bar */}
+                          <div className={`w-1 h-10 rounded-full flex-shrink-0 ${dotBg[v.color] || "bg-slate-400"}`} />
+                          {/* Mini thumbnail */}
+                          <div className={`w-12 h-8 rounded-lg bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex items-center justify-center flex-shrink-0`}>
+                            <svg className="w-3 h-3 text-white/80 ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                          </div>
+                          {/* Info */}
+                          <div className="flex-1 min-w-0">
+                            <p className="text-slate-800 text-xs font-semibold leading-snug line-clamp-1">{v.title}</p>
+                            <div className="flex items-center gap-2 mt-0.5">
+                              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${catLabel[v.cat]?.color}`}>
+                                {catLabel[v.cat]?.[language === 'en' ? 'en' : 'ar']}
+                              </span>
+                              <span className="text-[10px] text-slate-400">
+                                {language === 'en' ? 'Coming Soon' : 'قريباً'}
+                              </span>
+                            </div>
+                          </div>
+                          {/* Episode number */}
+                          <span className="text-xs font-black text-slate-300 flex-shrink-0">{v.ep}</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                }
+
+                /* ── Category tabs → thumbnail card grid ── */
                 return (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
                     {filtered.map((v, i) => (
                       <div key={i}
                         className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-                        {/* Thumbnail */}
-                        <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex flex-col items-center justify-center`}>
-                          {/* Episode badge */}
-                          <span className="absolute top-2 ltr:left-2 rtl:right-2 text-[10px] font-black bg-black/40 text-white px-1.5 py-0.5 rounded-md backdrop-blur-sm">
-                            EP {v.ep}
-                          </span>
-                          {/* Category icon */}
+                        <div className={`relative aspect-video bg-gradient-to-br ${thumbGrad[v.color] || thumbGrad.slate} flex items-center justify-center`}>
+                          <span className="absolute top-2 ltr:left-2 rtl:right-2 text-[10px] font-black bg-black/40 text-white px-1.5 py-0.5 rounded-md backdrop-blur-sm">EP {v.ep}</span>
                           <span className="absolute top-2 ltr:right-2 rtl:left-2 text-sm">{catIcon[v.cat]}</span>
-                          {/* Play button */}
-                          <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-200">
-                            <svg className="w-5 h-5 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M8 5v14l11-7z"/>
-                            </svg>
+                          <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30 group-hover:bg-white/30 group-hover:scale-110 transition-all">
+                            <svg className="w-5 h-5 text-white ltr:ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                           </div>
-                          {/* Coming soon overlay */}
                           <span className="absolute bottom-2 ltr:right-2 rtl:left-2 text-[10px] font-bold bg-black/50 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-sm">
                             {language === 'en' ? 'Coming Soon' : 'قريباً'}
                           </span>
                         </div>
-                        {/* Title */}
                         <div className="p-3">
                           <p className="text-slate-800 text-xs font-semibold leading-snug line-clamp-2">{v.title}</p>
-                          <p className="text-slate-400 text-[10px] mt-1 font-medium">
-                            {language === 'en' ? `Dr. El Ghobashy · Arabic` : `د. الغباشي · عامية مصرية`}
-                          </p>
+                          <p className="text-slate-400 text-[10px] mt-1">{language === 'en' ? 'Dr. El Ghobashy · Arabic' : 'د. الغباشي · عامية مصرية'}</p>
                         </div>
                       </div>
                     ))}
